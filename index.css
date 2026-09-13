@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #EDEFE7;
+  color: #202B3D;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Fraunces", serif;
+}
+
+.ledger-row {
+  border-bottom: 1px solid #D8DACE;
+}
+.ledger-row:last-child {
+  border-bottom: none;
+}
+
+::selection {
+  background-color: #E8C878;
+  color: #202B3D;
+}
+
+:focus-visible {
+  outline: 2px solid #B98419;
+  outline-offset: 2px;
+}
