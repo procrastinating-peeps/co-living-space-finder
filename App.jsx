@@ -1,16 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import Browse from "./pages/Browse.jsx";
-import PropertyDetail from "./pages/PropertyDetail.jsx";
-import Profile from "./pages/Profile.jsx";
-import MyBookings from "./pages/MyBookings.jsx";
-import OwnerDashboard from "./pages/OwnerDashboard.jsx";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
-
+import Navbar from "./Navbar.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
+import Home from "./Home.jsx";
+import Login from "./Login.jsx";
+import Register from "./Register.jsx";
+import Browse from "./Browse.jsx";
+import PropertyDetail from "./PropertyDetail.jsx";
+import Profile from "./Profile.jsx";
+import MyBookings from "./MyBookings.jsx";
+import OwnerDashboard from "./OwnerDashboard.jsx";
+import AdminDashboard from "./AdminDashboard.jsx";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
