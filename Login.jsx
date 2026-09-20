@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext.jsx";
-import Field, { inputClass } from "../components/Field.jsx";
+import Field from "./Field.jsx";
 
 export default function Login() {
   const { login } = useAuth();
