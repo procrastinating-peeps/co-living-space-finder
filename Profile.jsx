@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import api from "./api";
 import { useAuth } from "./AuthContext.jsx";
 import Field from "./Field.jsx";
-import VerifiedBadge from "../components/VerifiedBadge.jsx";
+import VerifiedBadge from "./VerifiedBadge.jsx";
 
 const defaultProfile = {
   gender: "", occupation: "", city: "", budget_min: "", budget_max: "",
