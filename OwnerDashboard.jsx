@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../api";
-import Field, { inputClass } from "../components/Field.jsx";
+import api from "./api";
+import Field from "./Field.jsx";
 
 const statusStyles = {
   pending: "text-brass-dark bg-brass/10 border-brass/40",
