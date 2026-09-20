@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchProperties } from '../api';
-
+import PropertyCard from "./PropertyCard.jsx";
 export default function Browse() {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
