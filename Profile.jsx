@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import api from "./api";
 import { useAuth } from "./AuthContext.jsx";
-import Field, { inputClass } from "../components/Field.jsx";
+import Field from "./Field.jsx";
 import VerifiedBadge from "../components/VerifiedBadge.jsx";
 
 const defaultProfile = {
