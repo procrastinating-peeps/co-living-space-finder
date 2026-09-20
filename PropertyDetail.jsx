@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../api";
-import { useAuth } from "../context/AuthContext.jsx";
-import VerifiedBadge from "../components/VerifiedBadge.jsx";
-import CompatibilityMeter from "../components/CompatibilityMeter.jsx";
+import api from "./api";
+import { useAuth } from "./AuthContext.jsx";
+import CompatibilityMeter from "./CompatibilityMeter.jsx";
+import VerifiedBadge from "./VerifiedBadge.jsx";
 
 export default function PropertyDetail() {
   const { id } = useParams();
