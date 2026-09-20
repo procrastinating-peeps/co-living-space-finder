@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "./api";
-import VerifiedBadge from "./components/VerifiedBadge.jsx";
+import VerifiedBadge from "./VerifiedBadge.jsx";
 
 export default function AdminDashboard() {
   const [tab, setTab] = useState("listings");
