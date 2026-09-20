@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropertyCard from "./PropertyCard.jsx";
+import api from "./api";
+
 export default function Browse() {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,10 +11,15 @@ export default function Browse() {
   const loadProperties = async () => {
     setLoading(true);
     try {
-      const data = await fetchProperties({ city: searchCity, gender });
-      setProperties(data);
+      const params = {};
+      if (searchCity.trim()) params.city = searchCity.trim();
+      if (gender && gender !== 'Any') params.gender = gender;
+
+      const res = await api.get("/properties", { params });
+      setProperties(res.data || []);
     } catch (err) {
-      console.error(err);
+      console.error("Failed to load properties:", err);
+      setProperties([]);
     } finally {
       setLoading(false);
     }
@@ -58,16 +65,18 @@ export default function Browse() {
       {/* Property Cards Grid */}
       {loading ? (
         <p className="text-gray-500">Loading listings...</p>
+      ) : properties.length === 0 ? (
+        <p className="text-gray-500">No properties found matching your criteria.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((item) => (
-            <div key={item.id} className="border border-slate-200 rounded-xl overflow-hidden shadow-sm bg-white hover:shadow-md transition">
+            <div key={item.id || item._id} className="border border-slate-200 rounded-xl overflow-hidden shadow-sm bg-white hover:shadow-md transition">
               <div className="p-5">
                 <div className="flex justify-between items-start mb-2">
                   <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-50 text-blue-700">
                     {item.room_type}
                   </span>
-                  <span className="text-sm font-bold text-amber-500">★ {item.rating}</span>
+                  <span className="text-sm font-bold text-amber-500">★ {item.rating || "New"}</span>
                 </div>
                 <h3 className="text-lg font-bold text-slate-800">{item.title}</h3>
                 <p className="text-sm text-slate-500 mb-4">{item.area}, {item.city}</p>
@@ -82,8 +91,10 @@ export default function Browse() {
 
                 <div className="flex justify-between items-center pt-3 border-t border-slate-100">
                   <div>
-                    <span className="text-xl font-extrabold text-slate-900">₹{item.rent.toLocaleString()}</span>
-                    <span className="text-xs text-slate-400 line-through ml-2">₹{item.original_rent?.toLocaleString()}</span>
+                    <span className="text-xl font-extrabold text-slate-900">₹{item.rent?.toLocaleString()}</span>
+                    {item.original_rent && (
+                      <span className="text-xs text-slate-400 line-through ml-2">₹{item.original_rent?.toLocaleString()}</span>
+                    )}
                     <span className="text-xs text-slate-500 block">/ month</span>
                   </div>
                   <button className="bg-slate-900 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-slate-800">
