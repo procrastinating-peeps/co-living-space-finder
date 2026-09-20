@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import api from "../api";
-import { useAuth } from "../context/AuthContext.jsx";
+
+import api from "./api";
+import { useAuth } from "./AuthContext.jsx";
 import Field, { inputClass } from "../components/Field.jsx";
 import VerifiedBadge from "../components/VerifiedBadge.jsx";
 
