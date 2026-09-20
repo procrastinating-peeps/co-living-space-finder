@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import api from "../api";
+import api from "./api";
 
 const statusStyles = {
   pending: "text-brass-dark bg-brass/10 border-brass/40",
